@@ -79,10 +79,13 @@ public class PropertyManipulator
         string pattern = "[^a-zA-Z0-9 ]";
 
         var result = new List<(string, string)>();
-        foreach (var item in strings)
+        if (strings != null)
         {
-            string filteredName = Regex.Replace(item.Item2, pattern, "");
-            result.Add((filteredName, item.Item1));
+            foreach (var item in strings)
+            {
+                string filteredName = Regex.Replace(item.Item2, pattern, "");
+                result.Add((filteredName, item.Item1));
+            }
         }
 
         return result;
